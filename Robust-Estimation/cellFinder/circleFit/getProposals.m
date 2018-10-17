@@ -22,8 +22,6 @@ n_ordered = [];
 n_ordered(1, :) = normals(1, :);
 
 
-
-
 normals(1, :) = [];
 
 
@@ -57,14 +55,9 @@ groups = {};
 
 group = [p_ordered(1,:)];
 
-
-
-
-
-
 for i = 2:size(p_ordered, 1) - 1
     
-    if dot(n_ordered(i - 1 , :), n_ordered(i, :)) > 0.87 || size(groups, 2) >=  (numGuesses)
+    if dot(n_ordered(i - 1 , :), n_ordered(i, :)) > 0.87 || size(groups, 2) >=  (numGuesses) || size(group,1) < 2
         group(end + 1,:) = p_ordered(i,:);
     else
         groups{end + 1} = group;
@@ -96,15 +89,12 @@ for i=1:size(groups,2)
     for j= 1:size(group,1)
         total_r = norm (group(j,:) - circle_center) + total_r;
         
-        scatter(group(j,1), group(j,2),size(group,1), i);
-        hold on
+
     end
     
     r = total_r / size(group,1);
-    
-    circles(end + 1, :)= [circle_center(1),circle_center(2),r];
-    
-    scatter(circle_center(1), circle_center(2),size(group,1), i+10);
+    circles(end + 1, :)= [circle_center(1), circle_center(2), r];
+   
 end
 
 return

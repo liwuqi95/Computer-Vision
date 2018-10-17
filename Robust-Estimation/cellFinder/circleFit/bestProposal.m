@@ -16,7 +16,6 @@ index = 1;
 for i= 1:size(circles,1)
     
     
-    
     center_x = circles(i, 1);
     center_y = circles(i, 2);
     r = circles(i, 3);
@@ -24,12 +23,11 @@ for i= 1:size(circles,1)
     o = 0;
     
     for j=1:size(p,1)
-  
+        
         x = p(j, 1);
         y = p(j, 2);
         
         e = (x-center_x)^2 + (y-center_y)^2 - r^2;
-        
         
         rho = e^2 / (sigmaGM^2 + e^2);
         o = o + rho;
@@ -37,7 +35,7 @@ for i= 1:size(circles,1)
     
     if o < min_o || min_o < 0
         min_o = o;
-        index = i; 
+        index = i;
     end
     
 end
