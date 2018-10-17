@@ -4,12 +4,12 @@
 % Set up paths and constants.
 
 % Need to change this to refer to your startup.m 
-run C:/matlab/startup;
+run ../matlab/startup;
 
 % Need to change this to be the install directory for
 % the A2 handout code (with subdirectories circleFit, and util,
 % and sibling directory ../data).
-hmdir = '../cellFinder';
+hmdir = './';
 
 % Link the other handout directories for A2
 addpath([hmdir,'circleFit']);
