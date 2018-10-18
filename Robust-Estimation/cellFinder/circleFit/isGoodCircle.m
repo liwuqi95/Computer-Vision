@@ -23,15 +23,16 @@ x0 = x0(:);  % Decide, row or column
 goodCircle = true;
 
 
-ave = mean(w);
+if nFound < 1
+    
+    ave = mean(w);
 
-if ave > 0.7
-    goodCircle = false;
-    return
-end
+    if ave < 0.01
+        goodCircle = false;
+        return
+    end
 
-
-if nFound > 0
+else
     
     for i= 1:nFound
         
@@ -42,28 +43,14 @@ if nFound > 0
         
         distance = norm(center - x0);
         
-        if distance < ( radius + r ) * 0.5
-            
+        
+        if distance < (r + radius) * 0.5
             goodCircle = false;
             return
         end
         
+        
     end
 end
 
-
-
-
-
-
-
-
-
-
-
 return
-
-
-
-
-% YOU FINISH THIS

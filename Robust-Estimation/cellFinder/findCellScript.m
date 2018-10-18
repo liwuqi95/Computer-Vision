@@ -115,13 +115,13 @@ for iFname = 1:1  % Use 1 image for now, change to 1:nFname to process all
   % You can switch between looping through all connected
   % components versus interactively selecting components
   % by switching the comments on the following two loop headers.
+%   
+  mouseSelect = false;
+  for ccInd = 1:Nccs
   
-  %mouseSelect = false;
-  %for ccInd = 1:Nccs
-  
-  mouseSelect = true;
-  while mouseSelect
-    
+%   mouseSelect = true;
+%   while mouseSelect
+%     
     if mouseSelect
       % Choose a connected component by selecting it with a mouse
       % Show segments in a random colour image.

@@ -14,6 +14,7 @@ function [circles] = getProposals(normals, p, numGuesses)
 %   circles a P x 3 array, each row contains [x0(1) x0(2) r]
 %           with 0 <= P <= numGuesses.
 
+
 p_ordered = [];
 p_ordered(1, :) = p(1, :);
 p(1, :) = [];
@@ -57,7 +58,7 @@ group = [p_ordered(1,:)];
 
 for i = 2:size(p_ordered, 1) - 1
     
-    if dot(n_ordered(i - 1 , :), n_ordered(i, :)) > 0.87 || size(groups, 2) >=  (numGuesses) || size(group,1) < 2
+    if dot(n_ordered(i - 1 , :), n_ordered(i, :)) > 0.87 || size(groups, 2) >=  (numGuesses -1)
         group(end + 1,:) = p_ordered(i,:);
     else
         groups{end + 1} = group;
@@ -65,40 +66,33 @@ for i = 2:size(p_ordered, 1) - 1
     end
 end
 
-first_group = groups{1};
-
-if size(group,1) > 0
-    if dot( first_group(1 , :)  , group(end, :) ) > 0.87
-        groups{1} = vertcat(groups{1}, group);
-    elseif size(groups, 2) >=  (numGuesses)
-        groups{end} = vertcat(groups{end}, group);
-    end
+if size(group, 1) > 0
+    groups{end +1} = group;
 end
-
-
 
 circles = [];
 
 for i=1:size(groups,2)
     
+    
+    
     group = groups{i};
+    
+    if size(group,1) < 2
+        continue
+    end
+    
     circle_center = mean(group);
     
     total_r = 0;
     
     for j= 1:size(group,1)
         total_r = norm (group(j,:) - circle_center) + total_r;
-        
-
     end
     
     r = total_r / size(group,1);
     circles(end + 1, :)= [circle_center(1), circle_center(2), r];
-   
+    
 end
 
 return
-
-
-
-
