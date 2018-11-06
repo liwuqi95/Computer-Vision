@@ -14,7 +14,7 @@ global matlabVisRoot
 %% We need to ensure the path is set for the iseToolbox.
 if length(matlabVisRoot)==0
   dir = pwd;
-  cd /Volumes/CLOUD HD/kyros/Dropbox (Kyros Group)/notes/courses/CS2503/matlab   %% CHANGE THIS to your startup directory
+  cd ../matlab   %% CHANGE THIS to your startup directory
   startup;
   cd(dir);
 end
