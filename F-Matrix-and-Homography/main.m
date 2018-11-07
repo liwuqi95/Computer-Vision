@@ -1,5 +1,5 @@
 
-
+% part A
 % code from handout
 f = 100; % focal length
 dLeft = [-50, 0, -150]';  
@@ -61,6 +61,29 @@ while sigma < 20
 end
 
 plot(sigmas,median_errors)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

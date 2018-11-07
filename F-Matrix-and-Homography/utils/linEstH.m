@@ -56,6 +56,7 @@ function [H, Sa] = linEstH(left, right, NUM_RESCALE)
     % sum(sum(imPts(1:2,:,:).^2,2)/nPts,1) % Should be 2.
   end
 
+  left
   %% Make constraint matrix A. 
   left = reshape(imPts(:,:,1), [3 nPts]);
   right = reshape(imPts(:,:,2), [3 nPts]);
@@ -64,7 +65,7 @@ function [H, Sa] = linEstH(left, right, NUM_RESCALE)
   
   
   
-  
+  left
   
   %% Bogus return values.  You need to fix this.
   H = 0;
