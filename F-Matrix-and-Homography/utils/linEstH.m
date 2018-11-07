@@ -57,7 +57,14 @@ function [H, Sa] = linEstH(left, right, NUM_RESCALE)
   end
 
   %% Make constraint matrix A. 
-  %% You fill in below here.
+  left = reshape(imPts(:,:,1), [3 nPts]);
+  right = reshape(imPts(:,:,2), [3 nPts]);
+  
+  
+  
+  
+  
+  
   
   %% Bogus return values.  You need to fix this.
   H = 0;

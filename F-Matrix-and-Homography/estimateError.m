@@ -9,8 +9,7 @@ for i = 1:size(points, 2)
     
     epipolar_f0 = points(:, i).' * F0;
     epipolar_f1 = points(:, i).' * F1;
-    
-    
+
 %     ploting epipolar lines
 %     x = -150:150;
 %     y = -epipolar_f0(3)/epipolar_f0(2) - epipolar_f0(1) / epipolar_f0(2) * x;
