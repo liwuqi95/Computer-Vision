@@ -56,7 +56,7 @@ chatty = false;  % Show intermediate results of normal and surface fitting.
 figure(2); clf;
 
 % Loop over the test image sets to be used
-for useImageSet = 1 % 1:6  or just choose one image set, e.g. 3
+for useImageSet = 3 % 1:6  or just choose one image set, e.g. 3
     switch useImageSet
         case 1
             name = 'gray';
@@ -253,7 +253,7 @@ for useImageSet = 1 % 1:6  or just choose one image set, e.g. 3
         
         imDataCrop = imData(mask, 1:nDirChrome);
         
-        [nCrop, albedoRGBCrop] = fitReflectance(imDataCrop, Lchrome);
+        [~, albedoRGBCrop] = fitReflectance(imDataCrop, Lchrome);
         
         albedoRGB = zeros(numPixels,1);
         albedoRGB(mask) = albedoRGBCrop;

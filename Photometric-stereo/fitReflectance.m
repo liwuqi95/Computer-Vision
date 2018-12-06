@@ -24,11 +24,6 @@ n = g ./ repmat(albedo, 1, 3);
 
 
 
-
-
-
-
-
 return;
 
 
