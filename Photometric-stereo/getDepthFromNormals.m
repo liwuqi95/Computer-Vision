@@ -41,7 +41,7 @@ end
 Z = A \ v;
 
 depth = reshape(Z,[M,N])';
-% depth(mask==0) = 0;
+
 
 
 

@@ -49,14 +49,14 @@ nDirChrome = 8;
 nDir = 12;
 
 chattyChrome = false;  % show intermediate results in chrome images.
-chatty = true;  % Show intermediate results of normal and surface fitting.
+chatty = false;  % Show intermediate results of normal and surface fitting.
 
 % Clear figure to be used for light source directions,
 % for which we will superimpose results from all image sets.
 figure(2); clf;
 
 % Loop over the test image sets to be used
-for useImageSet = 6 % 1:6  or just choose one image set, e.g. 3
+for useImageSet = 1 % 1:6  or just choose one image set, e.g. 3
     switch useImageSet
         case 1
             name = 'gray';
@@ -345,7 +345,6 @@ for useImageSet = 6 % 1:6  or just choose one image set, e.g. 3
     % allows you to run your partially completed code on
     % each of the examples.
     
-    continue
 
     
     
@@ -357,10 +356,10 @@ for useImageSet = 6 % 1:6  or just choose one image set, e.g. 3
     
     % YOU NEED TO ADD CODE HERE FOR PART 5
     
-%     Lrec = g\imData(mask,(nDirChrome+1):nDir);
+    imDataRecCrop = imData(mask,(nDirChrome+1):nDir);
     
+    Lrec = g \ imDataRecCrop;
 
-    
     LrecMag = sqrt(sum(Lrec.^2,1));
     figure(5); clf;
     plot(LrecMag, '-*b'); hold on;
